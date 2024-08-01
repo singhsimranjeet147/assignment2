@@ -28,7 +28,7 @@ steps:
     - 'get-credentials'
     - 'simran'
     - '--zone'
-    - 'us-central1-c'
+    - 'us-central1'
     - '--project'
     - 'in-class-activity-424123'
 
@@ -37,32 +37,32 @@ steps:
   args: ['apply', '-f', './k8s/ui-deployment.yaml']
   env:
     - 'CLOUDSDK_CONTAINER_CLUSTER=simran'
-    - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
+    - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
     - 'CLOUDSDK_CORE_PROJECT=in-class-activity-424123'
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', './k8s/ui-service.yaml']
   env:
     - 'CLOUDSDK_CONTAINER_CLUSTER=simran'
-    - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
+    - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
     - 'CLOUDSDK_CORE_PROJECT=in-class-activity-424123'
 
 # Step 8: Apply Flask deployment and service
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', './k8s/flask-deployment.yaml']
   env:
-    - 'CLOUDSDK_CONTAINER_CLUSTER=navicluster'
-    - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
-    - 'CLOUDSDK_CORE_PROJECT=project897927-429912'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=simran'
+    - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
+    - 'CLOUDSDK_CORE_PROJECT=in-class-activity-424123'
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', './k8s/flask-service.yaml']
   env:
-    - 'CLOUDSDK_CONTAINER_CLUSTER=navicluster'
-    - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
-    - 'CLOUDSDK_CORE_PROJECT=project897927-429912'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=simran'
+    - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
+    - 'CLOUDSDK_CORE_PROJECT=in-class-activity-424123'
 
 images:
-  - 'gcr.io/project897927-429912/ui:latest'
-  - 'gcr.io/project897927-429912/flask:latest'
+  - 'gcr.io/in-class-activity-424123/ui:latest'
+  - 'gcr.io/in-class-activity-424123/flask:latest'
 
 options:
   logging: CLOUD_LOGGING_ONLY
