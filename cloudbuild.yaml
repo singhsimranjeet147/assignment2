@@ -28,7 +28,7 @@ steps:
     - 'get-credentials'
     - 'simran'
     - '--zone'
-    - 'us-central1-c'
+    - 'us-central1a'
     - '--project'
     - 'in-class-activity-424123'
 
